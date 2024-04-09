@@ -1,0 +1,81 @@
+.quiz-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .intro-container {
+    min-height: calc(100vh - 100px); /* Adjusted height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    text-align: justify; /* Justify text */
+    padding: 15px 200px;
+  }
+  
+  .quiz-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .quiz-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .scroll-button.up,
+.scroll-button.down {
+  display: none; /* Initially hide the buttons */
+}
+
+.scroll-button {
+  position: fixed;
+  font-size: 24px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.scroll-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show scroll-up button when not at the top of the page */
+body:not(:first-child) .scroll-button.up {
+  display: block;
+}
+
+/* Show scroll-down button when not at the bottom of the page */
+body:not(:last-child) .scroll-button.down {
+  display: block;
+}
+
+/* Positioning for the scroll-up button */
+.scroll-button.up {
+  bottom: 20px; /* Adjust positioning */
+  right: 20px; /* Adjust positioning */
+}
+
+/* Positioning for the scroll-down button */
+.scroll-button.down {
+  top: 90px; /* Adjust positioning */
+  right: 20px; /* Adjust positioning */
+}
+
+/* Show scroll-up button when not at the top of the page */
+body:not(:first-child) .scroll-button.up {
+    display: block;
+  }
+  
+  /* Show scroll-down button when not at the bottom of the page */
+  body:not(:last-child) .scroll-button.down {
+    display: block;
+  }
+  
