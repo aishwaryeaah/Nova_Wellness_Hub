@@ -6,6 +6,7 @@ import Ask from './Ask';
 import GetInTouch from './GetInTouch';
 import Learn from './Learn';
 import Vara from './Vara';
+import Interview from './Interview';
 
 function Dashboard() {
 
@@ -23,6 +24,9 @@ function Dashboard() {
         </div>
         <div>
           <About />
+        </div>
+        <div>
+          <Interview />
         </div>
         <div>
           <Learn />

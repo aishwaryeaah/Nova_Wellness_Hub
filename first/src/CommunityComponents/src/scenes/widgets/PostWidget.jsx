@@ -1,10 +1,19 @@
+
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
     FavoriteOutlined,
     ShareOutlined,
   } from "@mui/icons-material";
-  import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
+  import {
+    IconButton,
+    Typography,
+    useTheme,
+    Box,
+    Divider,
+    Button, // Import Button component
+    InputBase, // Import InputBase component
+  } from '@mui/material';
   import FlexBetween from "../../components/FlexBetween";
   import Friend from "../../components/Friend";
   import WidgetWrapper from "../../components/WidgetWrapper";
@@ -24,6 +33,7 @@ import {
     comments,
   }) => {
     const [isComments, setIsComments] = useState(false);
+    const [comment, setComment] = useState(""); // State for comment input
     const dispatch = useDispatch();
     const token = useSelector((state) => state.token);
     const loggedInUserId = useSelector((state) => state.user._id);
@@ -45,6 +55,20 @@ import {
       });
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
+    };
+  
+    const handleAddComment = async () => {
+      const response = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: loggedInUserId, comment }),
+      });
+      const updatedPost = await response.json();
+      dispatch(setPost({ post: updatedPost }));
+      setComment(""); // Clear the comment input field after submission
     };
   
     return (
@@ -94,19 +118,46 @@ import {
         </FlexBetween>
         {isComments && (
           <Box mt="0.5rem">
-            {comments.map((comment, i) => (
-              <Box key={`${name}-${i}`}>
+            {comments.map(({ userId, comment }, i) => (
+              <Box key={`${userId}-${i}`}>
                 <Divider />
                 <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
-                  {comment}
+                  <strong>{userId}:</strong> {comment}
                 </Typography>
               </Box>
             ))}
             <Divider />
           </Box>
         )}
+  
+        {/* Comment input field and button */}
+        <Box mt="1rem">
+          <InputBase
+            placeholder="Add a comment..."
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+            sx={{
+              width: "100%",
+              backgroundColor: palette.neutral.light,
+              borderRadius: "2rem",
+              padding: "0.5rem 1rem",
+            }}
+          />
+          <Button
+            onClick={handleAddComment}
+            sx={{
+              marginLeft: "0.5rem",
+              color: palette.background.alt,
+              backgroundColor: palette.primary.main,
+              borderRadius: "3rem",
+            }}
+          >
+            Comment
+          </Button>
+        </Box>
       </WidgetWrapper>
     );
   };
   
   export default PostWidget;
+  

@@ -2,39 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Learn.css'; // Import the CSS file
 
 const DashLearn = () => {
-  const [numOfCells, setNumOfCells] = useState(0);
 
-  useEffect(() => {
-    const calculateNumOfCells = () => {
-      const containerWidth = window.innerWidth;
-      const containerHeight = window.innerHeight;
-      const cellWidth = 150; // Adjust cell width as needed
-      const cellHeight = 130; // Adjust cell height as needed
-      const gap = 5; // Adjust gap between cells as needed
-
-      const numOfColumns = Math.floor(containerWidth / (cellWidth + gap));
-      const numOfRows = Math.floor(containerHeight / (cellHeight + gap));
-      const totalCells = numOfColumns * numOfRows;
-
-      return totalCells;
-    };
-
-    const handleResize = () => {
-      const totalCells = calculateNumOfCells();
-      setNumOfCells(totalCells);
-    };
-
-    // Initial calculation
-    const initialNumOfCells = calculateNumOfCells();
-    setNumOfCells(initialNumOfCells);
-
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   useEffect(() => {
     document.body.style.backgroundColor = '#FAF1DA'; // Set default background color
   }, []);
@@ -101,17 +69,11 @@ const DashLearn = () => {
     <div>
     <div style={styles.container}>
     <div style={styles.overlay}></div> {/* Dark semi-transparent overlay */}
-    <div style={{ position: 'relative', zIndex: 2, fontFamily: '"Bona Nova", serif', fontWeight: 400, fontStyle: 'italic', marginBottom: '40px', fontSize: '20px', padding:'5rem' }}>
-      <p style={{fontFamily: '"Bona Nova", serif', maxWidth: '50%', position: 'relative',  margin: '0 auto', letterSpacing: '2px', wordSpacing: '5px'}}>
-      <h3 style={{ color: '#252524', marginBottom: '6px', fontSize: '1.5rem' }}>LEARN</h3>
-        <h1 style={{ color: '#252524', fontSize: '2rem', fontWeight: '700', fontFamily: 'Anta, sans-serif',fontStyle: 'normal'}}>Decode Health Mysteries.</h1>
-Women should prioritize their health and well-being by staying informed about their bodies, maintaining proper hygiene, and addressing health concerns promptly. This awareness empowers them to make informed decisions and leads to a healthier, happier life.</p>
-    </div>
-    <div style={styles.honeycomb}>
-      {/* Honeycomb cells */}
-      {Array.from({ length: numOfCells }, (_, index) => (
-          <div key={index} style={{ ...styles.honeycombCell }}></div>
-      ))}
+    <div style={{ position: 'relative', zIndex: 2, marginBottom: '40px', fontSize: '20px', padding:'5rem' }}>
+      <p style={{fontFamily: "Roboto, sans-serif", maxWidth: '70%', position: 'relative',  fontWeight: 200, margin: '0 auto', letterSpacing: '2px', wordSpacing: '5px'}}>
+      <h3 style={{ color: '#252524', marginBottom: '6px', fontFamily: "Roboto, sans-serif", fontSize: '1.5rem'  }}>LEARN</h3>
+        <h1 style={{ color: '#252524', fontSize: '1.5rem', fontWeight: '700', fontFamily: 'Anta, sans-serif',fontStyle: 'normal'}}>Decode Health Mysteries.</h1>
+        Women should prioritize their health and well-being by staying informed about their bodies, maintaining proper hygiene, and addressing health concerns promptly. This awareness empowers them to make informed decisions and leads to a healthier, happier life.</p>
     </div>
     </div>
     <div className="dash-container">
@@ -178,7 +140,7 @@ const DashLearnImage = ({ imageSrc, title, text, link, bodyColor }) => {
 
   const handleMouseLeave = () => {
     document.body.style.transition = 'background-color 0.3s ease'; // Smooth transition
-    document.body.style.backgroundColor = '#F6F0E2';
+    document.body.style.backgroundColor = '#FAF1DA';
   };
 
   return (

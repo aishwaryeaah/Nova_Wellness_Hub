@@ -17,18 +17,21 @@ const PageHeader = () => {
         >
           COMMUNITY
         </Link>
-        <Link
-          to='/about'
-          style={{ ...styles.navItem, color : 'black' }}
-        >
-          ABOUT
-        </Link>
+
         <Link
           to="/learn"
           style={{ ...styles.navItem, color : 'black' }}
         >
           LEARN
         </Link>
+
+        <Link
+          to='/about'
+          style={{ ...styles.navItem, color : 'black' }}
+        >
+          ABOUT
+        </Link>
+      
         <Link
           to="/quiz"
           style={{ ...styles.navItem, color: 'black' }}

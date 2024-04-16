@@ -39,7 +39,7 @@ const DashAsk = () => {
             overflow: 'hidden',
         }}>
           <img 
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/478278147112679.62bc7005d8fae.png" 
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/90a3b2130194683.617aaea8892fa.png" 
             alt="Your Image" 
             style={{ 
               width: '100%', 
@@ -66,7 +66,7 @@ const DashAsk = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {!isHovered && (
+           {/* {!isHovered && (
             <div style={{ color: '#FFFFFF', fontSize: '1rem', textAlign: 'center', fontFamily: 'Arial, sans-serif', marginTop: '-400px', fontSize: '10px' }}>
               <p>Hover to Know More About the Artist<FontAwesomeIcon icon={faAngleDoubleUp} style={{ marginLeft: '10px' }} /></p>
               </div>            
@@ -77,7 +77,7 @@ const DashAsk = () => {
                 <p style={{ color: '#FFFFFF', fontSize: '1rem', textAlign: 'center', fontFamily: 'Arial, sans-serif', margin: '10px 0 0 0' }}>Link Below to Artist's Behance Page.</p>
                 <a href="https://www.behance.net/clemencethune" style={{ color: '#FFFFFF', fontSize: '1rem', textAlign: 'left', fontFamily: 'Arial, sans-serif', textDecoration: 'underline', margin: '10px 0 0 0' }}>Let's Go!</a>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </div>

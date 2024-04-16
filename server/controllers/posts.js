@@ -15,8 +15,8 @@ export const createPost = async(req, res) => {
             userPicturePath: user.picturePath,
             picturePath,
             likes: {},
-            comments: []
-        })
+            comments: [], // Initialize comments array
+          });
         await newPost.save();
         const post = await Post.find();
         res.status(201).json(post);
@@ -58,7 +58,7 @@ export const likePost = async(req, res) => {
         if(isLiked){
             post.likes.delete(userId);
         }else{
-            post.likes.set(userId, true);
+            post.likes.set({userId}, true);
         }
 
         const updatedPost = await Post.findByIdAndUpdate(
@@ -72,3 +72,22 @@ export const likePost = async(req, res) => {
         res.status(404).json({message: err.message})
     }
 }
+
+export const addComment = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { userId, comment } = req.body;
+  
+      const post = await Post.findById(id);
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+  
+      post.comments.push({ userId, comment });
+      await post.save();
+  
+      res.status(200).json(post);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };
