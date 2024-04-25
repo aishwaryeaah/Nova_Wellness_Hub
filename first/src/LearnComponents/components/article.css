@@ -1,0 +1,42 @@
+/* article.css */
+.article-container {
+    max-width: 800px;
+    margin: 20px auto; /* top and bottom margin */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .article-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .article-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .article-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .article-content p {
+    margin-bottom: 15px;
+  }
+  
+  .article-content ul {
+    margin-bottom: 20px;
+  }
+  
+  .article-content ul li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }

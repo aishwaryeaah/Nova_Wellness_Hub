@@ -7,7 +7,6 @@ import PostsWidget from "../widgets/PostsWidget.jsx";
 import AdvertWidget from "../widgets/AdvertWidget.jsx"; // Note: Check if the file extension is correct
 import FriendListWidget from "../widgets/FriendListWidget.jsx"; // Note: Check if the file extension is correct
 
-
 const HomePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const { _id, picturePath } = useSelector((state) => state.user);

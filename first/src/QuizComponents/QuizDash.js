@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './QuizDash.css'; // Import your CSS file for component-specific styles
+import Footer from "../NavComponents/DashFooter.js";
 
 const QuizDash = () => {
   const quizRef = useRef(null);
@@ -10,7 +11,7 @@ const QuizDash = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (quizRef.current) {
-        const introHeight = document.querySelector('.intro-container').offsetHeight;
+        const introHeight = document.querySelector('.intro-container')?.offsetHeight || 0;
         const quizTop = quizRef.current.offsetTop;
         const quizBottom = quizTop + quizRef.current.offsetHeight;
 
@@ -29,7 +30,7 @@ const QuizDash = () => {
   }, []);
 
   const scrollToQuiz = () => {
-    quizRef.current.scrollIntoView({ behavior: 'smooth' });
+    quizRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToTop = () => {
@@ -37,38 +38,61 @@ const QuizDash = () => {
   };
 
   return (
-    <div className="quiz-dashboard">
-      <div className="intro-container">
-      <p>
-          Assessing mental health concerns is essential for providing comprehensive healthcare, and various screening tools have been developed to aid in this process. In this document, we present several widely utilized questionnaires for evaluating common mental health conditions, such as Attention-Deficit/Hyperactivity Disorder (ADHD), insomnia, anxiety, depression, and alcohol use disorders. These tools are designed to be completed by patients, offering structured assessments of symptoms over defined time periods, typically the past few weeks or months. Each questionnaire serves as a valuable resource for healthcare professionals to initiate discussions with patients, assess symptom severity, and determine the need for further evaluation or intervention.
-        </p>
-        <p>
-          While these screening tools can help identify potential mental health issues, it's important to recognize that they are not diagnostic instruments on their own. A comprehensive clinical assessment, including a thorough medical history, physical examination, and possibly additional diagnostic tests, may be necessary to establish a formal diagnosis and develop an appropriate treatment plan. By integrating these screening tools into their practice, healthcare professionals can gather valuable information about their patients' mental health status, identify potential areas of concern, and tailor treatment plans accordingly. These resources aim to enhance the recognition and management of mental health disorders in primary care and other healthcare settings, ultimately improving patient outcomes and quality of life. We encourage healthcare professionals to utilize these tools as part of a comprehensive approach to mental health assessment and management.
-        </p>
-        <button className="scroll-button down" onClick={scrollToQuiz} style={{ display: showScrollDown ? 'block' : 'none' }}>↓</button>
+    <div>
+      <div className="quiz-dashboard">
+        <div className="container">
+          <div className="col-md-12 text-center heading" style={{ backgroundColor: "#F6C2B3", padding: '20px', borderRadius: '10px', animation: 'fadeIn 2s ease-out' }}>
+            <h2 style={{ color: '#333', letterSpacing:'3px',  }}>Elevate Your Well-Being</h2>
+            <h4 style={{ fontFamily: "Anta, san-serif", fontSize: '1rem', letterSpacing:'2px', marginTop: '-10px', color: '#333' }}>Interactive Mental Health Quizzes</h4>
+            <p className="paragraph" style={{ color: '#333', paddingBottom: '20px' }}>
+            Welcome to our dedicated space for nurturing mental well-being through interactive quizzes. 
+            At Nova Wellness, we recognize that mental health is just as important as physical health, 
+            and we're committed to providing accessible resources to support your journey towards 
+            greater well-being. Our quizzes cover mental health conditions, offering personalized insights to empower your mental wellness.
+              <br/><br/>
+              Explore our curated selection of quizzes, each designed to provide valuable insights and 
+              foster self-awareness. Whether you're curious about depression (assessed through the PHQ-9), 
+              generalized anxiety disorder (GAD-7), insomnia, 
+              or bipolar disorder, our quizzes offer a user-friendly and informative experience. 
+              Join us in prioritizing mental health and embracing a proactive approach to self-care. 
+              Our interactive quizzes are here to support you on your journey towards greater well-being, 
+              offering guidance, validation, and empowerment every step of the way. 
+            </p>
+          </div>
+          <div ref={quizRef} className="quiz-container">
+
+            <div className="quiz-box" style={{backgroundColor: "#FB6B44"}}>
+              <h3>Patient Health Questionnaire</h3>
+              <p>The PHQ-9 quiz is a widely used tool in healthcare, designed to screen for 
+                symptoms of depression and assess their severity through nine questions.</p>
+              <Link to="/phq9">Take Quiz</Link>
+            </div>
+
+            <div className="quiz-box" style={{backgroundColor: "#68A0D5"}}>
+              <h3>Generalized Anxiety Disorder</h3>
+              <p>The GAD-7 quiz is a brief self-assessment tool designed to measure the severity 
+                of generalized anxiety disorder symptoms.</p>
+              <Link to="/gad7">Take Quiz</Link>
+            </div>
+            
+            <div className="quiz-box" style={{backgroundColor: "#FCAC94"}}>
+              <h3>Insomnia Severity Index Questionnaire</h3>
+              <p>The Insomnia Severity Index (ISI) quiz evaluates sleep difficulties 
+                based on seven questions, offering guidelines for scoring and interpretation.</p>
+              <Link to="/isi">Take Quiz</Link>
+            </div>
+            <div className="quiz-box" style={{backgroundColor: "#044189"}}>
+              <h3>Mood Disorder Questionnaire</h3>
+              <p>The MDQ quiz assesses potential symptoms 
+                of manic-depressive illness, aiding in determining the 
+                need for further medical evaluation.</p>
+              <Link to="/mdq">Take Quiz</Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <div ref={quizRef} className="quiz-container">
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        <div className="quiz-box">
-          <Link to="/phq9">PHQ-9 Quiz</Link>
-        </div>
-        {/* Add more quiz boxes here */}
-      </div>
-      <button className="scroll-button up" onClick={scrollToTop} style={{ display: showScrollUp ? 'block' : 'none' }}>↑</button>
+
+      <Footer/>
     </div>
   );
 };

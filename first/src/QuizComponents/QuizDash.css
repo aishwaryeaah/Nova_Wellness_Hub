@@ -1,81 +1,78 @@
-.quiz-dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .intro-container {
-    min-height: calc(100vh - 100px); /* Adjusted height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    text-align: justify; /* Justify text */
-    padding: 15px 200px;
-  }
-  
-  .quiz-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .quiz-box {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .scroll-button.up,
-.scroll-button.down {
-  display: none; /* Initially hide the buttons */
-}
-
-.scroll-button {
+.walking-girl {
   position: fixed;
-  font-size: 24px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  width: 150px; /* Adjust the width as needed */
+  animation: walk 10s linear infinite; /* Adjust animation duration and timing function */
+}
+
+@keyframes walk {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+.quiz-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container .heading {
+  font-family: 'Anta', serif;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.container .paragraph {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  text-align: justify;
+  max-width: 80%;
+  font-size: 1rem;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.quiz-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.quiz-box {
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff; /* Text color for better readability */
+}
+
+.quiz-box h3 {
+  margin-bottom: 10px;
+}
+
+.quiz-box p {
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.quiz-box a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #333; /* Background color for link */
   padding: 5px 10px;
-  cursor: pointer;
-  z-index: 999;
+  border-radius: 5px;
 }
 
-.scroll-button:hover {
-  background-color: #f0f0f0;
+.quiz-box a:hover {
+  background-color: #555; /* Background color on hover */
 }
-
-/* Show scroll-up button when not at the top of the page */
-body:not(:first-child) .scroll-button.up {
-  display: block;
-}
-
-/* Show scroll-down button when not at the bottom of the page */
-body:not(:last-child) .scroll-button.down {
-  display: block;
-}
-
-/* Positioning for the scroll-up button */
-.scroll-button.up {
-  bottom: 20px; /* Adjust positioning */
-  right: 20px; /* Adjust positioning */
-}
-
-/* Positioning for the scroll-down button */
-.scroll-button.down {
-  top: 90px; /* Adjust positioning */
-  right: 20px; /* Adjust positioning */
-}
-
-/* Show scroll-up button when not at the top of the page */
-body:not(:first-child) .scroll-button.up {
-    display: block;
-  }
-  
-  /* Show scroll-down button when not at the bottom of the page */
-  body:not(:last-child) .scroll-button.down {
-    display: block;
-  }
-  

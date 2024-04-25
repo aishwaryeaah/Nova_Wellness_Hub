@@ -9,6 +9,7 @@ import {
   FormControl,
   useTheme,
   useMediaQuery,
+  Tooltip,
 } from "@mui/material";
 import {
   Search,
@@ -24,19 +25,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "../../state/index.js";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "../../components/FlexBetween";
+import HelpPage from "./HelpPage/HelpPage.js";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
-
-  const [searchQuery, setSearchQuery] = useState("");
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -46,6 +43,39 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
+  const token = useSelector((state) => state.token);
+
+  const handleSearchChange = (event) => {
+    const keyword = event.target.value;
+    setSearchKeyword(keyword);
+  };
+
+  const handleSearch = async () => {
+    try {
+      const [firstName, lastName] = searchKeyword.split(" ");
+      const response = await fetch(
+        `/search/users?firstName=${firstName}&lastName=${lastName}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log("Search response:", data); // Log response data
+      const { userId } = data;
+      if (userId) {
+        // If a userId is found, navigate to their profile page
+        navigate(`/profile/${userId}`);
+      } else {
+        console.log("No such user found");
+      }
+    } catch (error) {
+      console.error("Error searching for user:", error);
+    }
+    setSearchKeyword(""); // Clear search keyword after search
+  };
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -62,7 +92,7 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          Nova Community
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
@@ -71,8 +101,12 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Search..." />
-            <IconButton>
+            <InputBase
+              placeholder="Search..."
+              value={searchKeyword}
+              onChange={handleSearchChange}
+            />
+            <IconButton onClick={handleSearch}>
               <Search />
             </IconButton>
           </FlexBetween>
@@ -89,9 +123,19 @@ const Navbar = () => {
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
             )}
           </IconButton>
-          <Message sx={{ fontSize: "25px" }} />
-          <Notifications sx={{ fontSize: "25px" }} />
-          <Help sx={{ fontSize: "25px" }} />
+          <Tooltip title="Coming soon...">
+            <IconButton>
+              <Message sx={{ fontSize: "25px", color: "black" }} />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Coming soon...">
+            <IconButton>
+              <Notifications sx={{ fontSize: "25px", color: "black" }} />
+            </IconButton>
+          </Tooltip>
+          <IconButton onClick={() => navigate("/help-page")}>
+            <Help sx={{ fontSize: "25px", color: "black" }} />
+          </IconButton>
           <FormControl variant="standard" value={fullName}>
             <Select
               value={fullName}
@@ -164,9 +208,19 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
-            <Message sx={{ fontSize: "25px" }} />
-            <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} />
+            <Tooltip title="Coming soon...">
+              <IconButton>
+                <Message sx={{ fontSize: "25px", color: "black" }} />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Coming soon...">
+              <IconButton>
+                <Notifications sx={{ fontSize: "25px", color: "black" }} />
+              </IconButton>
+            </Tooltip>
+            <IconButton onClick={() => navigate("/help-page")}>
+              <Help sx={{ fontSize: "25px", color: "black" }} />
+            </IconButton>
             <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}

@@ -7,6 +7,8 @@ import GetInTouch from './GetInTouch';
 import Learn from './Learn';
 import Vara from './Vara';
 import Interview from './Interview';
+import Footer from './DashFooter';
+import NovaBlogging from './NovaBlogging';
 
 function Dashboard() {
 
@@ -32,7 +34,13 @@ function Dashboard() {
           <Learn />
         </div>
         <div>
+          <NovaBlogging/>
+        </div>
+        <div>
           <GetInTouch />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </div>

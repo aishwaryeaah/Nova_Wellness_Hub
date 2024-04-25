@@ -1,56 +1,42 @@
 import React from 'react';
+import './GetInTouch.css'; // Import CSS file for styling
+import image1 from './InstaImages/1.jpeg';
+import image2 from './InstaImages/2.png';
+import image3 from './InstaImages/3.jpeg';
+import image4 from './InstaImages/4.jpeg';
+import image5 from './InstaImages/5.jpeg';
+import image6 from './InstaImages/6.jpeg';
+import image7 from './InstaImages/7.jpeg';
+import image8 from './InstaImages/8.png';
+
+// Import other images as needed
 
 const GetInTouch = () => {
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    // Add other images here
+  ];
 
-
-
-  const containerStyle = {
-    backgroundColor: '#FAF1DA', // Silverish blue background color
-    fontFamily: 'Anta, sans-serif', // Atra font
-    textAlign: 'center',
-    fontSize: '2.5rem', // Big font size
-    minHeight: '100vh', // Changed height to minHeight
-    display: 'flex', // Added display flex
-    flexDirection: 'column', // Set flex direction to column
-    justifyContent: 'space-between', // Space between children
-    boxSizing: 'border-box', // Added box-sizing
-  };
-
-  const headingStyle = {
-    color: '#252524', // White text color for links
-    margin: '40px 0', // Adjust margin as needed
-  };
-
-  const linkStyle = {
-    color: '#252524', // White text color for links
-    textDecoration: 'none', // Remove underline from links
-    margin: '0 10px', // Adjust margin as needed
-    padding: '40px 0',
-  };
-
-  const footerStyle = {
-    display: 'flex', // Added display flex
-    justifyContent: 'space-between', // Space between children
-    padding: '5px', // Added padding
-    flexShrink: 0, // Prevent footer from shrinking
-  };
+  // Duplicate images to ensure continuous scrolling
+  const duplicatedImages = [...images, ...images];
 
   return (
-    <div>
-      
-      <div style={containerStyle}>
-        <h1 style={headingStyle}>Vara Health</h1>
-        <div style={{ flex: 1 }}></div>
-        <div style={footerStyle}>
-          <a href="https://www.behance.net/your_account" style={linkStyle}>
-            BEHANCE
-          </a>
-          <a href="https://www.instagram.com/your_account" style={linkStyle}>
-            INSTAGRAM
-          </a>
-          <a href="https://www.pinterest.com/your_account" style={linkStyle}>
-            PINTEREST
-          </a>
+    <div className="get-in-touch">
+      <h2 style={{ color: '#333', fontFamily: "Anta, sans-serif", letterSpacing: '2px', marginBottom: '5px', fontSize: '2rem', fontWeight: 600 }}>
+        <a href="https://www.instagram.com/periodsandchocolates" target="_blank" rel="noopener noreferrer" className="instagram-link" style={{textDecoration:"none", color: "#333"}}>FOLLOW US ➜</a>
+      </h2>
+      <div className="train-container">
+        <div className="train">
+          {duplicatedImages.map((image, index) => (
+            <img key={index} src={image} alt={`Image ${index + 1}`} style={{ marginRight: '20px' }} />
+          ))}
         </div>
       </div>
     </div>

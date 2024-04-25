@@ -1,0 +1,245 @@
+/* Import fonts from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Container styles */
+.help-page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Title styles */
+.help-page-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #333;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.help-page-title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #6c63ff;
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+  padding: 5px 0; /* Add padding only to the top and bottom */
+}
+
+.help-page-title1 {
+  font-size: 2.5rem;
+  font-family: "Roboto", sans-serif;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0; /* Add padding only to the top and bottom */
+  border: 2px solid #6c63ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text styles */
+.help-page-text {
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem; /* Add padding for better readability */
+  background-color: #f9f9f9; /* Add a light background color */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.05rem; /* Add letter spacing */
+  font-size: 1rem; /* Increased text size */
+  line-height: 2rem; /* Increased line height for better readability */
+}
+
+/* Section styles */
+.help-page-section {
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.help-page-section-title {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 2rem; /* Increase text size */
+  padding: 2rem; /* Add padding inside the box */
+  margin-bottom: 2rem; /* Add space below the box */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.help-page-section-title + * {
+  margin-top: 2rem;
+}
+
+.help-page-section-text {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 1.5rem; /* Add spacing between text */
+}
+
+.help-page-section-text {
+  font-family: "Roboto", sans-serif; /* Change font family as desired */
+  font-size: 1.2rem; /* Adjust font size */
+  line-height: 1.6; /* Adjust line height for better readability */
+  letter-spacing: 0.5px; /* Add letter spacing */
+  margin-bottom: 20px; /* Add space between paragraphs */
+  /* Add any additional styles here */
+}
+
+.help-page-section-text strong {
+  font-family: "Roboto", sans-serif; /* Use any desired font family */
+  font-weight: bold;
+  color: #000000; /* Change color as needed */
+  text-decoration: underline; /* Add underlining */
+  padding-bottom: 4px; /* Add spacing below */
+  font-size: 1.5rem; /* Adjust font size for a nice and big appearance */
+  /* Add any additional styles such as letter-spacing, etc. */
+}
+
+/* Button styles */
+.help-page-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #6c63ff;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border: 2px solid #6c63ff;
+  outline: none;
+}
+
+/* Button styles */
+.help-page-buttons .faqs {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #6c63ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.help-page-buttons .cont {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #6c63ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.help-page-buttons .faqs:hover,
+.help-page-buttons .cont:hover {
+  background-color: #544bd2;
+}
+
+/* Button spacing */
+.help-page-buttons .spacer {
+  width: 20px;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list li strong {
+  font-weight: bold;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.footer-info {
+  font-size: 16px;
+  margin-top: 20px;
+  color: #666;
+}
+
+.footer-info::before {
+  content: "Welcome to Nova Community! ";
+  font-weight: bold;
+}
+
+.faq-container {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.faq-container h2 {
+  margin-bottom: 20px;
+  font-family: "Anta", sans-serif;
+  font-size: 32px;
+}
+
+.faq-item {
+  margin-bottom: 40px;
+}
+
+.faq-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}

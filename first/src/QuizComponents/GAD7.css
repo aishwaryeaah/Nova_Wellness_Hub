@@ -1,0 +1,85 @@
+
+.gad7-container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #FAF1DA;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .instruction {
+    margin-bottom: 20px;
+    justify-content: center;
+    color: #044189;
+  }
+  
+  .tab-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .tab-container button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #044189;
+    font-family: 'Anta', sans-serif;
+  }
+  
+  .tab-container button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .question-container {
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .response-options label {
+    display: block;
+    margin-bottom: 10px;
+    color: #044189;
+    font-family: 'Rubik';
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    background-color: #FB6B44;
+    color: #FAF1DA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Rubik';
+    margin-top: 10px;
+  }
+  
+  .result-container {
+    margin-top: 20px;
+  }
+  
+  .result-container p {
+    margin-bottom: 10px;
+    color: #044189;
+    font-family: 'Rubik';
+  }
+  .response-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }

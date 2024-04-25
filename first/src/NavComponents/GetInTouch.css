@@ -1,0 +1,64 @@
+.get-in-touch {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .train-container {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .train {
+    white-space: nowrap;
+    animation: scroll 20s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  .train img {
+    display: inline-block;
+    width: 200px; /* Adjust image size as needed */
+    height: auto;
+    margin-right: 20px; /* Adjust spacing between images as needed */
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .get-in-touch {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .train-container {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .train {
+    white-space: nowrap;
+    animation: scroll 20s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  .train img {
+    padding: 4% 0%;
+    display: inline-block;
+    width: 400px; /* Adjust image size as needed */
+    height: auto;
+    margin-right: 50px; /* Adjust spacing between images as needed */
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  

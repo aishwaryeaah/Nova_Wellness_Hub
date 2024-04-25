@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import articles from '../LearnComponents/data/articles';
+import period from './Images/period.jpg';
+import sleep from './Images/slep.jpg';
+import body from './Images/body.jpg';
+import medi from './Images/medi.jpg';
+import cancer from './Images/cancer.jpg';
+import comm from './Images/comm.jpg';
 import './Learn.css'; // Import the CSS file
 
 const DashLearn = () => {
-
+  
   useEffect(() => {
     document.body.style.backgroundColor = '#FAF1DA'; // Set default background color
   }, []);
@@ -23,7 +31,6 @@ const DashLearn = () => {
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundColor: 'rgba(246, 240, 226, 0.6)', // Dark semi-transparent background
       zIndex: 1,
     },
     content: {
@@ -33,27 +40,10 @@ const DashLearn = () => {
       color: '#4E4637',
       position: 'relative', // Ensure it's above the overlay
     },
-    honeycomb: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, 150px)', // Adjust column width as needed
-      gridAutoRows: '130px', // Adjust row height as needed
-      gap: '5px', // Adjust gap between honeycomb cells
-      zIndex: -1,
-    },
-    honeycombCell: {
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(255, 255, 255, 0.3)', // Adjust cell color and opacity
-      borderRadius: '10%', // Adjust cell shape to create honeycomb effect
-    },
   };
   
     const [animationIndex, setAnimationIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
   
     useEffect(() => {
       const animationInterval = setInterval(() => {
@@ -62,71 +52,86 @@ const DashLearn = () => {
   
       return () => clearInterval(animationInterval);
     }, []);
-  
-    const words = ["Bodies.", "Health Concerns.", "Nurture an inclusive environment for exchanging insights and stories."];
-  
+    
+    
   return (
-    <div>
-    <div style={styles.container}>
-    <div style={styles.overlay}></div> {/* Dark semi-transparent overlay */}
-    <div style={{ position: 'relative', zIndex: 2, marginBottom: '40px', fontSize: '20px', padding:'5rem' }}>
-      <p style={{fontFamily: "Roboto, sans-serif", maxWidth: '70%', position: 'relative',  fontWeight: 200, margin: '0 auto', letterSpacing: '2px', wordSpacing: '5px'}}>
-      <h3 style={{ color: '#252524', marginBottom: '6px', fontFamily: "Roboto, sans-serif", fontSize: '1.5rem'  }}>LEARN</h3>
-        <h1 style={{ color: '#252524', fontSize: '1.5rem', fontWeight: '700', fontFamily: 'Anta, sans-serif',fontStyle: 'normal'}}>Decode Health Mysteries.</h1>
-        Women should prioritize their health and well-being by staying informed about their bodies, maintaining proper hygiene, and addressing health concerns promptly. This awareness empowers them to make informed decisions and leads to a healthier, happier life.</p>
-    </div>
-    </div>
+    <div style={{
+      padding: '0 7%',
+    }}>
+      <div className="learn-dash-dashboard" style={{marginBottom:"40px", marginTop:'20px'}}>
+        <div className="container">
+          <div className="col-md-12 text-center heading" style={{ backgroundColor: "#F8AFA6", padding: '20px', borderRadius: '10px', animation: 'fadeIn 2s ease-out' }}>
+            <h2 style={{ color: '#333', letterSpacing:'3px' }}>LEARN</h2>
+            <h4 style={{ fontFamily: "Anta, san-serif", fontSize: '1rem', letterSpacing:'2px',  marginTop: '-10px', color: '#333' }}>Unlock the Secrets to Women's Health and Wellness</h4>
+            <p className="paragraph" style={{ color: '#333', paddingBottom: '20px' }}>
+            Unlock the secrets to women's health and wellness through Nova Wellness's Learn section. Here, women embark on a journey of self-discovery and empowerment, armed with comprehensive resources 
+            tailored to their unique health needs. From understanding menstrual health to nurturing mental well-being, this curated space offers insightful articles and expert guidance, guiding women 
+            towards informed decisions and holistic wellness.
+
+              <br/><br/>
+              Delve into a plethora of topics, from reproductive health to self-care practices, presented in an accessible and engaging format. Through informative articles and personal stories, gain a deeper 
+              understanding of your body and practical strategies to enhance overall well-being. Nova Wellness fosters a supportive community where women can connect, share experiences, and find solidarity in 
+              their health journey, amplifying diverse voices to cultivate a culture of openness and empowerment.
+            </p>
+          </div>
+        </div>
+      </div>
+
     <div className="dash-container">
       <div className="dash-row">
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?1"
-          title="Make your choice right now!"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quisquam doloremque nostrum laboriosam, blanditiis libero corporis nulla a aut?"
-          link="https://example.com/1"
+          imageSrc={sleep}
+          title="Techniques of Improving Sleep Quality"
+          text="Consistent schedule, comfortable environment. Read More ➜"
+          link="/mental_health/4"
           bodyColor="#86B971"
         />
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?2"
-          title="Another Title"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
-          link="https://example.com/2"
+          imageSrc={body}
+          title="Understanding Female Reproductive Anatomy"
+          text="Ovaries, fallopian tubes, uterus, vagina. Read More ➜"
+          link="/sexual_health/1"
           bodyColor="#DEE8C2"
         />
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?3"
-          title="Title Three"
-          text="Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi."
-          link="https://example.com/3"
+          imageSrc={period}
+          title="Exploring Irregular Menstruation Pattern"
+          text="Hormonal, stress, lifestyle, medical, irregular. Read More ➜"
+          link="/menstrual_health/3"
           bodyColor="#D26D50"
         />
       </div>
       <div className="dash-row">
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?1"
-          title="Make your choice right now!"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quisquam doloremque nostrum laboriosam, blanditiis libero corporis nulla a aut?"
-          link="https://example.com/1"
+          imageSrc={cancer}
+          title="Understanding Breast Cancer Risk Factors"
+          text="Genetics, age, hormones, lifestyle, environment. Read More ➜"
+          link="/cancer/1"
           bodyColor="#86B971"
         />
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?2"
-          title="Another Title"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
-          link="https://example.com/2"
+          imageSrc={comm}
+          title="Building and Maintaining Healthy Relationships"
+          text="Communication, trust, respect, boundaries, empathy. Read More ➜"
+          link="/resilience/6"
           bodyColor="#DEE8C2"
         />
         <DashLearnImage
-          imageSrc="https://source.unsplash.com/random/300x400?3"
-          title="Title Three"
-          text="Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi."
-          link="https://example.com/3"
+          imageSrc={medi}
+          title="Understanding Benefits of Meditation and Mindfulness"
+          text="Stress reduction, focus, emotional balance. Read More ➜"
+          link="/wellness/5"
           bodyColor="#D26D50"
         />
       </div>
     </div>
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', marginBottom: '50px' }}>
-        {/* Button */}
-        <button style={{ padding: '10px 20px', fontSize: '16px', backgroundColor: '#FB825C', border: 'none', borderRadius: '0px', cursor: 'pointer' }}>KNOW MORE</button>
+    <Link to="/learn">
+      <button className={isHovered ? 'dash-learn-button hovered' : 'dash-learn-button'} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        LEARN MORE
+        </button>
+      </Link>
+
       </div>
     </div>
   );
@@ -146,7 +151,7 @@ const DashLearnImage = ({ imageSrc, title, text, link, bodyColor }) => {
   return (
     <div className="dash-learn" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="dash-learn__content">
-        <h3 className="dash-learn__title" style={{ fontFamily: 'Anta, serif' }}>
+        <h3 className="dash-learn__title" style={{ fontFamily: 'Anta, san-serif' }}>
           {title}
         </h3>
         <p className="dash-learn__text" style={{ fontFamily: 'Bona Nova, serif', letterSpacing:'2px' }}>{text}</p>

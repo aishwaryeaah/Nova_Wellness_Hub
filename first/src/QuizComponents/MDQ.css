@@ -1,0 +1,123 @@
+.mdq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #FAF1DA;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-section {
+  margin-bottom: 20px;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.tab-scroll {
+  display: flex;
+  flex-wrap: wrap; /* Changed flex-wrap */
+}
+
+.tab-container button {
+  background-color: #68A0D5;
+  color: #FAF1DA;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px; /* Added margin */
+  cursor: pointer;
+}
+
+.tab-container button.active {
+  background-color: #044189;
+}
+
+.question-container {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-family: 'Rubik', sans-serif;
+  color: #044189;
+  margin-bottom: 15px;
+}
+
+.response-options {
+  margin-bottom: 15px;
+}
+
+.response-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.next-button {
+  background-color: #FB6B44;
+  color: #FAF1DA;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.result-container {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-container p {
+  font-family: 'Rubik', sans-serif;
+  color: #044189;
+  margin-bottom: 10px;
+}
+
+.result-container h3 {
+  font-family: 'Rubik', sans-serif;
+  color: #044189;
+  margin-bottom: 10px;
+}
+
+.result-container button {
+  margin-top: 10px;
+  background-color: #68A0D5;
+  color: #FAF1DA;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.result-container button + button {
+  margin-left: 10px;
+}
+
+.family-history, .diagnosed, .problem-level {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}

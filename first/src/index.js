@@ -1,10 +1,8 @@
-// CommunityComponents/src/index.js
-
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom';
 import './index.css';
 import App from './App';
-import authReducer from "./CommunityComponents/src/state";
+import authReducer from ".//CommunityComponents/src/state";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import {
@@ -34,13 +32,13 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App/>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

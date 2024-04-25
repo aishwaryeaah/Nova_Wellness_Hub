@@ -6,35 +6,36 @@ const PageHeader = () => {
   return (
     <header style={styles.header}>
       <div style={styles.left}>
-        <Link to="/">
-          <img src="logo.png" alt="Logo" style={styles.logo} />
+        <Link to="/" style={styles.logo}>
+          <div style={styles.nova}>NOVA</div>
+          <div style={styles.wellness}>Wellness</div>
         </Link>
       </div>
       <div style={styles.right}>
         <Link
           to="/login"
-          style={{ ...styles.navItem, color: 'black' }}
+          style={styles.navItem}
         >
           COMMUNITY
         </Link>
 
         <Link
           to="/learn"
-          style={{ ...styles.navItem, color : 'black' }}
+          style={styles.navItem}
         >
           LEARN
         </Link>
 
         <Link
           to='/about'
-          style={{ ...styles.navItem, color : 'black' }}
+          style={styles.navItem}
         >
           ABOUT
         </Link>
       
         <Link
           to="/quiz"
-          style={{ ...styles.navItem, color: 'black' }}
+          style={styles.navItem}
         >
           MENTAL HEALTH CHECK
         </Link>
@@ -63,8 +64,20 @@ const styles = {
     alignItems: 'center',
   },
   logo: {
-    width: '100px',
-    height: 'auto',
+    textDecoration: 'none',
+    color: '#333',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  nova: {
+    fontFamily: 'Goblin One, san-serif',
+    fontSize: '24px',
+    marginBottom: '-15px', // Adjust spacing between NOVA and Wellness
+  },
+  wellness: {
+    fontFamily: 'Croissant One, san-serif', // Replace YourArtisticFont with your desired font
+    fontSize: '20px',
   },
   right: {
     display: 'flex',
@@ -72,23 +85,13 @@ const styles = {
   },
   navItem: {
     margin: '0 30px',
-    fontFamily: 'ANTA, sans-serif',
+    fontFamily: 'Anta, san-serif',
     fontSize: '16px',
     textDecoration: 'none',
     position: 'relative',
     cursor: 'pointer',
+    color: '#333',
     transition: 'color 0.3s',
-  },
-  underline: {
-    content: '""',
-    position: 'absolute',
-    bottom: '-2px',
-    left: 0,
-    width: '100%',
-    height: '2px',
-    backgroundColor: '#333', // Color of the underline
-    transition: 'transform 0.3s, opacity 0.3s',
-    transformOrigin: 'bottom right',
   },
 };
 
